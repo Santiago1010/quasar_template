@@ -63,6 +63,8 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.16.11",
+    "crypto-js": "^4.2.0",
+    "jsonwebtoken": "^9.0.2",
     "quasar": "^2.16.4",
     "vue": "^3.4.21"
   },
