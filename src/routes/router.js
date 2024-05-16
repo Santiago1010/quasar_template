@@ -5,6 +5,7 @@ import MainLayout from '../layouts/MainLayouts.vue';
 
 // --------------------------------- PAGES --------------------------------- //
 import TableExample from '../pages/components/TableExample.vue';
+import MainPage from '../pages/MainPage.vue';
 
 import NotFound from '../pages/errors/NotFound.vue';
 
@@ -13,6 +14,11 @@ const routes = [
     path: '/',
     component: MainLayout,
     children: [
+      {
+        path: '/',
+        name: 'main',
+        component: MainPage,
+      },
       {
         path: '/table',
         name: 'table',
