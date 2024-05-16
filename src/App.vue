@@ -29,4 +29,10 @@
     width: 90%;
     left: 5%;
   }
+
+  .required_field::after {
+    content: '*';
+    color: red;
+    margin-left: 2%;
+  }
 </style>

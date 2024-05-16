@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import { Quasar } from 'quasar';
 import quasarLang from 'quasar/lang/es';
+import { createPinia } from 'pinia';
 
 import i18n from './boot/i18n';
 import router from './routes/router';
@@ -15,9 +16,12 @@ import 'quasar/src/css/index.sass';
 // Import App
 import App from './App.vue';
 
+const pinia = createPinia();
+
 createApp(App)
-  .use(router)
   .use(i18n)
+  .use(router)
+  .use(pinia)
   .use(Quasar, {
     plugins: {}, // import Quasar plugins and add here
     lang: quasarLang,
