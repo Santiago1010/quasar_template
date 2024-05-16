@@ -2,7 +2,7 @@ import { createI18n } from 'vue-i18n';
 import messages from '../i18n';
 
 let defaultLocale = import.meta.env.VITE_LANG_DEFAULT;
-// if (typeof localStorage !== undefined) defaultLocale = localStorage.getItem('language');
+if (localStorage.getItem('language')) defaultLocale = localStorage.getItem('language');
 
 let i18n = createI18n({
   legacy: false,
