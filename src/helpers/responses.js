@@ -1,10 +1,10 @@
-import config from './../config/config'
-import { Notify } from 'quasar'
+import config from './../config/config';
+import { Notify } from 'quasar';
 
 const defaultValues = {
   progress: true,
   timeout: config.parameters.timeoutNotify,
-}
+};
 
 /**
  * A factory function that generates a response object based on the provided type, message, and position.
@@ -21,17 +21,17 @@ const responseFactory =
     message,
     position,
     ...defaultValues,
-  })
+  });
 
-const positiveResponse = responseFactory('positive')
-const negativeResponse = responseFactory('negative')
-const warningResponse = responseFactory('warning')
-const infoResponse = responseFactory('info')
+const positiveResponse = responseFactory('positive');
+const negativeResponse = responseFactory('negative');
+const warningResponse = responseFactory('warning');
+const infoResponse = responseFactory('info');
 const onGoingResponse = (message, position) => ({
   type: 'ongoing',
   message,
   position,
-})
+});
 
 /**
  * Sends a notification of the specified type with the given message and position.
@@ -48,10 +48,10 @@ const sendNotification = (type, message, position = 'bottom') => {
     warning: warningResponse(message, position),
     info: infoResponse(message, position),
     ongoing: onGoingResponse(message, position),
-  }
+  };
 
-  return Notify.create({ ...responseMap[type] })
-}
+  return Notify.create({ ...responseMap[type] });
+};
 
 export {
   sendNotification,
@@ -60,4 +60,4 @@ export {
   warningResponse,
   infoResponse,
   onGoingResponse,
-}
+};

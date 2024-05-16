@@ -1,5 +1,5 @@
-import CryptoJS from 'crypto-js'
-import jwt from 'jsonwebtoken'
+import CryptoJS from 'crypto-js';
+import jwt from 'jsonwebtoken';
 
 /**
  * Encodes a string using AES encryption.
@@ -8,11 +8,11 @@ import jwt from 'jsonwebtoken'
  * @return {string} The encrypted string.
  */
 const encodeAes = (string) => {
-  const key = CryptoJS.enc.Utf8.parse(import.meta.env.VITE_AES_KEY)
-  const iv = CryptoJS.enc.Utf8.parse(import.meta.env.VITE_AES_IV)
+  const key = CryptoJS.enc.Utf8.parse(import.meta.env.VITE_AES_KEY);
+  const iv = CryptoJS.enc.Utf8.parse(import.meta.env.VITE_AES_IV);
 
-  return CryptoJS.AES.encrypt(string, key, { iv }).toString()
-}
+  return CryptoJS.AES.encrypt(string, key, { iv }).toString();
+};
 
 /**
  * Encodes a given string using SHA256 algorithm.
@@ -21,8 +21,8 @@ const encodeAes = (string) => {
  * @return {string} The encoded string.
  */
 const encodeSHA256 = (string) => {
-  return CryptoJS.SHA256(string).toString()
-}
+  return CryptoJS.SHA256(string).toString();
+};
 
 /**
  * Encodes a string using SHA256 and AES algorithms.
@@ -31,8 +31,8 @@ const encodeSHA256 = (string) => {
  * @return {string} The encoded string.
  */
 const setNewPassword = (string) => {
-  return encodeSHA256(encodeAes(string))
-}
+  return encodeSHA256(encodeAes(string));
+};
 
 /**
  * Validates a JWT session token.
@@ -47,53 +47,53 @@ const setNewPassword = (string) => {
  */
 const validateSessionJwt = (incomingToken = null) => {
   try {
-    const localStorageTokenName = import.meta.env.VITE_LOCAL_STORAGE_TOKEN_NAME // Name of the key in localStorage
+    const localStorageTokenName = import.meta.env.VITE_LOCAL_STORAGE_TOKEN_NAME; // Name of the key in localStorage
 
-    let storedToken = localStorage.getItem(localStorageTokenName) // Get token stored in localStorage
+    let storedToken = localStorage.getItem(localStorageTokenName); // Get token stored in localStorage
 
     // If a new token is provided, overwrite the stored token
     if (incomingToken) {
-      storedToken = incomingToken
-      localStorage.setItem(localStorageTokenName, storedToken) // Store the new token in localStorage
+      storedToken = incomingToken;
+      localStorage.setItem(localStorageTokenName, storedToken); // Store the new token in localStorage
     }
 
     if (!storedToken) {
-      throw new Error('No token found')
+      throw new Error('No token found');
     }
 
-    const decodedIncomingToken = jwt.decode(storedToken, { complete: true })
+    const decodedIncomingToken = jwt.decode(storedToken, { complete: true });
 
     // Validate JWT signature (secret key should come from a secure environment)
-    const secretKey = import.meta.env.VITE_JWT_SECRET
+    const secretKey = import.meta.env.VITE_JWT_SECRET;
     if (!secretKey) {
-      throw new Error('JWT_SECRET is not defined in the .env file')
+      throw new Error('JWT_SECRET is not defined in the .env file');
     }
 
-    jwt.verify(storedToken, secretKey)
+    jwt.verify(storedToken, secretKey);
 
     // Additional validation (e.g., expiration) only in production or pre-production environments
     const isProductionOrPreProduction =
       import.meta.env.VITE_NODE_ENV === 'production' ||
-      import.meta.env.VITE_NODE_ENV === 'pre-production'
+      import.meta.env.VITE_NODE_ENV === 'pre-production';
 
     if (isProductionOrPreProduction) {
-      const now = Math.floor(Date.now() / 1000)
+      const now = Math.floor(Date.now() / 1000);
 
       // Check expiration date (exp)
       if (decodedIncomingToken.payload.exp && decodedIncomingToken.payload.exp < now) {
-        throw new Error('JWT has expired')
+        throw new Error('JWT has expired');
       }
 
       // Check issuer (iss) if required
-      const expectedIssuer = import.meta.env.VITE_JWT_ISSUER
+      const expectedIssuer = import.meta.env.VITE_JWT_ISSUER;
       if (expectedIssuer && decodedIncomingToken.payload.iss !== expectedIssuer) {
-        throw new Error('Invalid issuer in JWT')
+        throw new Error('Invalid issuer in JWT');
       }
 
       // Check audience (aud) if required
-      const expectedAudience = import.meta.env.VITE_JWT_AUDIENCE
+      const expectedAudience = import.meta.env.VITE_JWT_AUDIENCE;
       if (expectedAudience && decodedIncomingToken.payload.aud !== expectedAudience) {
-        throw new Error('Invalid audience in JWT')
+        throw new Error('Invalid audience in JWT');
       }
     }
 
@@ -101,14 +101,14 @@ const validateSessionJwt = (incomingToken = null) => {
       valid: true,
       payload: decodedIncomingToken.payload,
       token: storedToken,
-    }
+    };
   } catch (error) {
-    console.error('Error validating JWT:', error.message)
+    console.error('Error validating JWT:', error.message);
     return {
       valid: false,
       payload: null,
-    }
+    };
   }
-}
+};
 
-export { setNewPassword, validateSessionJwt }
+export { setNewPassword, validateSessionJwt };
