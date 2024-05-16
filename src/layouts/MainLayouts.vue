@@ -1,3 +1,7 @@
+<script setup>
+  import ChangeLanguage from '../components/configuration/ChangeLanguage.vue';
+</script>
+
 <template>
   <q-layout view="lHh lpR lFf">
     <q-header elevated class="bg-primary text-white" height-hint="98">
@@ -6,8 +10,12 @@
           <q-avatar>
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
           </q-avatar>
-          Title
+          {{ $t('global.appName') }}
         </q-toolbar-title>
+
+        <q-space />
+
+        <ChangeLanguage />
       </q-toolbar>
 
       <!-- <q-tabs align="left">
@@ -21,15 +29,6 @@
       <router-view />
     </q-page-container>
 
-    <q-footer elevated class="bg-grey-8 text-white">
-      <q-toolbar>
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-          </q-avatar>
-          <div>Title</div>
-        </q-toolbar-title>
-      </q-toolbar>
-    </q-footer>
+    <q-footer elevated class="bg-grey-8 text-white"></q-footer>
   </q-layout>
 </template>
