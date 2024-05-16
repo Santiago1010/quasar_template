@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import { Quasar } from 'quasar';
+import i18n from './boot/i18n';
 import quasarLang from 'quasar/lang/es';
 
 // Import icon libraries
@@ -13,6 +14,7 @@ import 'quasar/src/css/index.sass';
 import App from './App.vue';
 
 createApp(App)
+  .use(i18n)
   .use(Quasar, {
     plugins: {}, // import Quasar plugins and add here
     lang: quasarLang,
