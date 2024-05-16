@@ -1,14 +1,7 @@
 <script setup>
-  import { ref } from 'vue';
   import { useRouter } from 'vue-router';
-  import { useI18n } from 'vue-i18n';
-  const { t } = useI18n();
 
   const $router = useRouter();
-
-  const title = ref(t('errors.notFound.title'));
-  const message = ref(t('errors.notFound.message'));
-  const button = ref(t('errors.notFound.button'));
 </script>
 
 <template>
@@ -21,18 +14,18 @@
               src="images/undraw/undraw_page_not_found_re_e9o6.svg"
               spinner-color="primary"
               class="vertical-middle error_page_image_container_image"
-              spinner-size="82px"
+              spinner-size="80px"
             />
           </div>
           <div class="col-12 col-md-6 q-px-md">
-            <h2 class="text-h2 text-white">{{ title }}</h2>
-            <p class="text-body1 text-white">{{ message }}</p>
+            <h2 class="text-h2 text-white">{{ $t('errors.notFound.title') }}</h2>
+            <p class="text-body1 text-white">{{ $t('errors.notFound.message') }}</p>
             <q-btn
               color="primary"
               icon="arrow_back"
               class="btn_large_container"
               @click="$router.back()"
-              :label="button"
+              :label="$t('errors.notFound.button')"
             />
           </div>
         </div>

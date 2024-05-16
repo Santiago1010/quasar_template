@@ -42,7 +42,7 @@
     "**/*.{js,ts,vue}": [
       "prettier --write --ignore-unknown",
       "eslint --fix",
-      "git add"
+      "git add ."
     ]
   },
   "scripts": {

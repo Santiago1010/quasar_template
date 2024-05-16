@@ -1,14 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-// import MainLayout from '../layouts/MainLayout.vue';
+// -------------------------------- LAYOUTS -------------------------------- //
+import MainLayout from '../layouts/MainLayouts.vue';
+
+// --------------------------------- PAGES --------------------------------- //
+import TableExample from '../pages/components/TableExample.vue';
 
 import NotFound from '../pages/errors/NotFound.vue';
 
 const routes = [
-  // {
-  //   path: '/',
-  //   component: MainLayout,
-  // },
+  {
+    path: '/',
+    component: MainLayout,
+    children: [
+      {
+        path: '/table',
+        name: 'table',
+        component: TableExample,
+      },
+    ],
+  },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
