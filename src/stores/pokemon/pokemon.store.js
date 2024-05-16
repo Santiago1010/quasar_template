@@ -9,6 +9,7 @@ export const usePokemonStore = defineStore('pokemon', {
     readAllPokemon() {
       readAllPokemonApi()
         .then((response) => {
+          console.log(response.data);
           const { results } = response.data;
 
           for (let result of results) {

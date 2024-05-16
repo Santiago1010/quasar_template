@@ -39,7 +39,7 @@ const setNewPassword = (string) => {
  *
  * @param {string} [incomingToken=null] - The incoming token to validate. If provided, it will overwrite the token stored in localStorage.
  * @throws {Error} If no token is found in localStorage or if the JWT_SECRET is not defined in the .env file.
- * @throws {Error} If the JWT has expired or if the issuer or audience is invalid in production or pre-production environments.
+ * @throws {Error} If the JWT has expired or if the issuer or audience is invalid in production or development environments.
  * @return {Object} An object with the following properties:
  *   - valid: A boolean indicating whether the token is valid or not.
  *   - payload: The decoded payload of the token.
@@ -71,12 +71,8 @@ const validateSessionJwt = (incomingToken = null) => {
 
     jwt.verify(storedToken, secretKey);
 
-    // Additional validation (e.g., expiration) only in production or pre-production environments
-    const isProductionOrPreProduction =
-      import.meta.env.VITE_NODE_ENV === 'production' ||
-      import.meta.env.VITE_NODE_ENV === 'pre-production';
-
-    if (isProductionOrPreProduction) {
+    // Additional validation (e.g., expiration) only in production or development environments
+    if (import.meta.env.VITE_NODE_ENV === 'production') {
       const now = Math.floor(Date.now() / 1000);
 
       // Check expiration date (exp)
