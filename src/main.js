@@ -3,8 +3,8 @@ import { Quasar } from 'quasar';
 import quasarLang from 'quasar/lang/es';
 import { createPinia } from 'pinia';
 
-import i18n from './boot/i18n';
-import router from './routes/router';
+import i18n from './configurations/i18n';
+import router from './configurations/router';
 
 // Import icon libraries
 import '@quasar/extras/roboto-font/roboto-font.css';
