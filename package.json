@@ -57,10 +57,10 @@
     "prepare": "husky",
     "preview": "vite preview",
     "script": "node ./src/scripts/hello.js",
-    "test": "vitest",
-    "test:push": "vitest --run",
-    "test:integrations": "vitest ./src/testing/integration",
-    "test:unit": "vitest ./src/testing/unit"
+    "test": "cross-env VITE_NODE_ENV=test vitest",
+    "test:push": "cross-env VITE_NODE_ENV=test vitest --run",
+    "test:integrations": "cross-env VITE_NODE_ENV=test vitest ./src/testing/integration",
+    "test:unit": "cross-env VITE_NODE_ENV=test vitest ./src/testing/unit"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.11",
@@ -77,6 +77,7 @@
     "@eslint/js": "^9.2.0",
     "@quasar/vite-plugin": "^1.7.0",
     "@vitejs/plugin-vue": "^5.0.4",
+    "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
