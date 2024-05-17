@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <q-card class="q-ma-md q-pa-md">
+  <q-card :class="'q-ma-md q-pa-md bg-' + props.types[0].type.name">
     <span class="poke_number" v-if="props.id > 0 && props.id < 10"># 00{{ props.id }}</span>
     <span class="poke_number" v-if="props.id >= 10 && props.id < 100"># 0{{ props.id }}</span>
     <span class="poke_number" v-if="props.id >= 100"># {{ props.id }}</span>
