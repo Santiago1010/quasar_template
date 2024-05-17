@@ -5,4 +5,4 @@ npm install
 # Use this command only if you use Docker container or Node v.22 is stable (Node v.22.0 or higher)
 # node --run test:push
 
-npm test:push
+npm run test:push
