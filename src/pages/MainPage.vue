@@ -5,31 +5,24 @@
 
   const pokemonStore = usePokemonStore();
 
-  const columns = [
-    {
-      name: 'id',
-      required: true,
-      label: '#',
-      align: 'left',
-      field: (row) => row.id,
-      sortable: true,
-    },
-    {
-      name: 'name',
-      required: true,
-      label: 'Pokémon',
-      align: 'left',
-      field: (row) => row.name,
-      style: 'text-transform: capitalize',
-      sortable: true,
-    },
-  ];
-
   onMounted(() => {
     pokemonStore.readAllPokemon();
   });
 </script>
 
 <template>
-  <q-table :rows="pokemonStore.pokemons" :columns="columns" row-key="name"></q-table>
+  <div class="row">
+    <div
+      v-for="pokemon in pokemonStore.pokemons"
+      :key="pokemon.id"
+      class="col-12 col-sm-6 col-md-3"
+    >
+      <PokeCard
+        :id="pokemon.id"
+        :image="pokemon.sprites.front_default"
+        :name="pokemon.name"
+        :types="pokemon.types"
+      />
+    </div>
+  </div>
 </template>
