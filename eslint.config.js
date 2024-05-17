@@ -10,6 +10,9 @@ export default [
         myCustomGlobal: 'readonly',
       },
     },
-    // ...other config
+    // ...compat.extends('eslint:recommended', 'plugin:vue/vue3-recommended'),
+    rules: {
+      semi: ['warn', 'always'],
+    },
   },
 ];
