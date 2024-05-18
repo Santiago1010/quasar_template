@@ -60,7 +60,7 @@ const toCamelCase = (string) => {
   str = str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
   let formattedString = '';
-  const stringsArray = string.split(' ');
+  const stringsArray = str.split(' ');
 
   for (let i = 0; i < stringsArray.length; i++) {
     formattedString +=
