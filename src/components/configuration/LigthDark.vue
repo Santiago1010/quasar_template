@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useQuasar } from 'quasar';
+
+const $q = useQuasar();
+</script>
 
 <template>
   <div class="btn-container">
@@ -15,7 +19,13 @@
       ></path>
     </svg>
     <label class="switch btn-color-mode-switch">
-      <input value="1" id="color_mode" name="color_mode" type="checkbox" />
+      <input
+        v-model="$q.dark.isActive"
+        id="color_mode"
+        name="color_mode"
+        type="checkbox"
+        @click="$q.dark.toggle()"
+      />
       <label
         class="btn-color-mode-switch-inner"
         data-off="Light"
@@ -47,18 +57,21 @@
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+  cursor: pointer;
 }
 
 .btn-container i {
   display: inline-block;
   position: relative;
   top: -9px;
+  cursor: pointer;
 }
 
 label {
   font-size: 13px;
   color: #424242;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .btn-color-mode-switch {
