@@ -79,7 +79,7 @@ const toCamelCase = (string) => {
  * @return {string} The converted string in PascalCase.
  */
 const toPascalCase = (string) => {
-  str = toCamelCase(string);
+  const str = toCamelCase(string);
 
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
