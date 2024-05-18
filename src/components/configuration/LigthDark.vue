@@ -92,7 +92,7 @@ label {
 .btn-color-mode-switch > label.btn-color-mode-switch-inner:after {
   content: attr(data-off);
   width: 70px;
-  height: 16px;
+  height: 26px;
   background: #fff;
   border-radius: 26px;
   position: absolute;

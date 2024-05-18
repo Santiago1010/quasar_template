@@ -25,5 +25,8 @@ createApp(App)
   .use(Quasar, {
     plugins: { Notify }, // import Quasar plugins and add here
     lang: quasarLang,
+    config: {
+      dark: 'auto',
+    },
   })
   .mount('#app');

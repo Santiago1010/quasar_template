@@ -1,5 +1,6 @@
 <script setup>
 import ChangeLanguage from '../components/configuration/ChangeLanguage.vue';
+import LigthDark from '../components/configuration/LigthDark.vue';
 </script>
 
 <template>
@@ -10,8 +11,12 @@ import ChangeLanguage from '../components/configuration/ChangeLanguage.vue';
           <q-avatar>
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
           </q-avatar>
-          {{ $t('global.appName') }}
+          {{ $t("global.appName") }}
         </q-toolbar-title>
+
+        <q-space />
+
+        <LigthDark />
 
         <q-space />
 
