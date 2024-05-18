@@ -7,8 +7,8 @@ const $router = useRouter();
 const pokemonStore = usePokemonStore();
 
 const filterByType = (type) => {
-	$router.push({ path: '/', query: { type } });
-	pokemonStore.readTypeDetails(type);
+  $router.push({ path: '/', query: { type } });
+  pokemonStore.readTypeDetails(type);
 };
 </script>
 

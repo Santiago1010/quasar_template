@@ -4,6 +4,4 @@ const classNames = ['primary', 'selected', 'active', 'medium'];
 const mutation = classNames.map((c) => `button--${c}`).join(' ');
 
 // 2. concatenation
-const concat = classNames
-	.map((c) => 'button--' + c)
-	.reduce((acc, c) => acc + ' ' + c, '');
+const concat = classNames.map((c) => 'button--' + c).reduce((acc, c) => acc + ' ' + c, '');

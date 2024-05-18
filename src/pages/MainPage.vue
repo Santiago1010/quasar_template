@@ -9,11 +9,11 @@ const $route = useRoute();
 const pokemonStore = usePokemonStore();
 
 onMounted(async () => {
-	pokemonStore.readAllPokemon();
+  pokemonStore.readAllPokemon();
 
-	if ($route.query.type !== undefined) {
-		pokemonStore.readTypeDetails($route.query.type);
-	}
+  if ($route.query.type !== undefined) {
+    pokemonStore.readTypeDetails($route.query.type);
+  }
 });
 </script>
 

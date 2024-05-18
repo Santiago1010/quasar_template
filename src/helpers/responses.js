@@ -26,6 +26,7 @@ const positiveResponse = responseFactory('positive');
 const negativeResponse = responseFactory('negative');
 const warningResponse = responseFactory('warning');
 const infoResponse = responseFactory('info');
+
 const onGoingResponse = (message, position) => ({
   type: 'ongoing',
   message,

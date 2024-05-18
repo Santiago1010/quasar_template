@@ -5,7 +5,7 @@
  * @return {number} The total sum of the numbers.
  */
 const sumNumbers = (...numbers) => {
-	return numbers.reduce((total, number) => total + number, 0);
+  return numbers.reduce((total, number) => total + number, 0);
 };
 
 /**
@@ -16,7 +16,7 @@ const sumNumbers = (...numbers) => {
  * @return {number} The rounded number.
  */
 const roundToDecimal = (num, decimals) => {
-	return Number(num.toFixed(decimals));
+  return Number(num.toFixed(decimals));
 };
 
 /**
@@ -27,7 +27,7 @@ const roundToDecimal = (num, decimals) => {
  * @return {number} A random number within the specified range
  */
 const getRandomNumber = (min, max) => {
-	return Math.floor(Math.random() * (max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 /**
@@ -39,13 +39,13 @@ const getRandomNumber = (min, max) => {
  * @return {number} The calculated percentage as a floating-point number with two decimal places.
  */
 const calculatePercentage = (smallerNumber, largerNumber) => {
-	if (smallerNumber >= largerNumber) {
-		throw new Error('The second number must be greater than the first');
-	}
+  if (smallerNumber >= largerNumber) {
+    throw new Error('The second number must be greater than the first');
+  }
 
-	const percentage = (smallerNumber / largerNumber) * 100;
+  const percentage = (smallerNumber / largerNumber) * 100;
 
-	return Number.parseFloat(percentage.toFixed(2));
+  return Number.parseFloat(percentage.toFixed(2));
 };
 
 /**
@@ -56,23 +56,17 @@ const calculatePercentage = (smallerNumber, largerNumber) => {
  * @return {string | null} The formatted number as a string with currency symbol or null if an error occurs.
  */
 const formatNumberToCurrency = (number, countryCode) => {
-	try {
-		const formatter = new Intl.NumberFormat(countryCode, {
-			style: 'currency',
-			currency: countryCode,
-		});
+  try {
+    const formatter = new Intl.NumberFormat(countryCode, {
+      style: 'currency',
+      currency: countryCode,
+    });
 
-		return formatter.format(number).split(' ')[1];
-	} catch (error) {
-		console.error(`Error formatting number to currency: ${error}`);
-		return null;
-	}
+    return formatter.format(number).split(' ')[1];
+  } catch (error) {
+    console.error(`Error formatting number to currency: ${error}`);
+    return null;
+  }
 };
 
-export {
-	sumNumbers,
-	roundToDecimal,
-	getRandomNumber,
-	calculatePercentage,
-	formatNumberToCurrency,
-};
+export { sumNumbers, roundToDecimal, getRandomNumber, calculatePercentage, formatNumberToCurrency };

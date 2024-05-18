@@ -19,11 +19,11 @@ import App from './App.vue';
 const pinia = createPinia();
 
 createApp(App)
-	.use(i18n)
-	.use(router)
-	.use(pinia)
-	.use(Quasar, {
-		plugins: { Notify }, // import Quasar plugins and add here
-		lang: quasarLang,
-	})
-	.mount('#app');
+  .use(i18n)
+  .use(router)
+  .use(pinia)
+  .use(Quasar, {
+    plugins: { Notify }, // import Quasar plugins and add here
+    lang: quasarLang,
+  })
+  .mount('#app');
