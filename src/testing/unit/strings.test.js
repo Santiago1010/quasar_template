@@ -13,7 +13,9 @@ const caseConventionsTest = 'My "TEsti!ng" v4ríable_WITH Ñ and ñ*';
 
 describe('Strings Helper', () => {
   test('To capitalize the first letter. (`formatCapitalize`)', () => {
-    expect(formatCapitalize('jhOn ñÁñez Doe ávila')).toBe('Jhon Ñáñez Doe Ávila');
+    expect(formatCapitalize('jhOn ñÁñez Doe ávila')).toBe(
+      'Jhon Ñáñez Doe Ávila',
+    );
   });
 
   test('To split a string into an array with strings. (`stringToArray`)', () => {
@@ -33,18 +35,26 @@ describe('Strings Helper', () => {
   });
 
   test('To convert a string to PascalCase. (`toPascalCase`)', () => {
-    expect(toPascalCase(caseConventionsTest)).toBe('MyTestingV4riableWithNAndN');
+    expect(toPascalCase(caseConventionsTest)).toBe(
+      'MyTestingV4riableWithNAndN',
+    );
   });
 
   test('To convert a string to snake_case. (`toSnakeCase`)', () => {
-    expect(toSnakeCase(caseConventionsTest)).toBe('my_testing_v4riable_with_n_and_n');
+    expect(toSnakeCase(caseConventionsTest)).toBe(
+      'my_testing_v4riable_with_n_and_n',
+    );
   });
 
   test('To convert a string to SCREAMING_SNAKE_CASE. (`toScreamingSnakeCase`)', () => {
-    expect(toScreamingSnakeCase(caseConventionsTest)).toBe('MY_TESTING_V4RIABLE_WITH_N_AND_N');
+    expect(toScreamingSnakeCase(caseConventionsTest)).toBe(
+      'MY_TESTING_V4RIABLE_WITH_N_AND_N',
+    );
   });
 
   test('To convert a string to kebab-case. (`toKebabCase`)', () => {
-    expect(toKebabCase(caseConventionsTest)).toBe('my-testing-v4riable-with-n-and-n');
+    expect(toKebabCase(caseConventionsTest)).toBe(
+      'my-testing-v4riable-with-n-and-n',
+    );
   });
 });

@@ -76,19 +76,28 @@ const validateSessionJwt = (incomingToken = null) => {
       const now = Math.floor(Date.now() / 1000);
 
       // Check expiration date (exp)
-      if (decodedIncomingToken.payload.exp && decodedIncomingToken.payload.exp < now) {
+      if (
+        decodedIncomingToken.payload.exp &&
+        decodedIncomingToken.payload.exp < now
+      ) {
         throw new Error('JWT has expired');
       }
 
       // Check issuer (iss) if required
       const expectedIssuer = import.meta.env.VITE_JWT_ISSUER;
-      if (expectedIssuer && decodedIncomingToken.payload.iss !== expectedIssuer) {
+      if (
+        expectedIssuer &&
+        decodedIncomingToken.payload.iss !== expectedIssuer
+      ) {
         throw new Error('Invalid issuer in JWT');
       }
 
       // Check audience (aud) if required
       const expectedAudience = import.meta.env.VITE_JWT_AUDIENCE;
-      if (expectedAudience && decodedIncomingToken.payload.aud !== expectedAudience) {
+      if (
+        expectedAudience &&
+        decodedIncomingToken.payload.aud !== expectedAudience
+      ) {
         throw new Error('Invalid audience in JWT');
       }
     }

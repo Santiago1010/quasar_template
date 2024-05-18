@@ -63,7 +63,10 @@ const toCamelCase = (string) => {
   const stringsArray = string.split(' ');
 
   for (let i = 0; i < stringsArray.length; i++) {
-    formattedString += i === 0 ? stringsArray[0].toLowerCase() : formatCapitalize(stringsArray[i]);
+    formattedString +=
+      i === 0
+        ? stringsArray[0].toLowerCase()
+        : formatCapitalize(stringsArray[i]);
   }
 
   return formattedString;

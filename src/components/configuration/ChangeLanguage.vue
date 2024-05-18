@@ -3,7 +3,9 @@ import { useQuasar } from 'quasar';
 import { onMounted } from 'vue';
 
 const $q = useQuasar();
-const modules = import.meta.glob('../../../node_modules/quasar/lang/(en-US|es).js');
+const modules = import.meta.glob(
+  '../../../node_modules/quasar/lang/(en-US|es).js',
+);
 const defaultLanguage = import.meta.env.VITE_LANG_DEFAULT;
 const actualLang = localStorage.getItem('language');
 
@@ -14,9 +16,11 @@ const changeLanguage = (newLocale) => {
 
   if (newLocale === 'en') locale = 'en-US';
 
-  modules['../../../node_modules/quasar/lang/' + locale + '.js']().then((lang) => {
-    $q.lang.set(lang.default);
-  });
+  modules['../../../node_modules/quasar/lang/' + locale + '.js']().then(
+    (lang) => {
+      $q.lang.set(lang.default);
+    },
+  );
 };
 
 onMounted(() => {

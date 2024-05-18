@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia';
-import { readAllPokemonApi, readPokemonsDetailsApi } from '../../api/pokemon/pokemon.api';
+import {
+  readAllPokemonApi,
+  readPokemonsDetailsApi,
+} from '../../api/pokemon/pokemon.api';
 import { readTypeDetailsApi } from '../../api/pokemon/type.api';
 
 export const usePokemonStore = defineStore('pokemon', {

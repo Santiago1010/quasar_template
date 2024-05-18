@@ -69,4 +69,10 @@ const formatNumberToCurrency = (number, countryCode) => {
   }
 };
 
-export { sumNumbers, roundToDecimal, getRandomNumber, calculatePercentage, formatNumberToCurrency };
+export {
+  sumNumbers,
+  roundToDecimal,
+  getRandomNumber,
+  calculatePercentage,
+  formatNumberToCurrency,
+};
