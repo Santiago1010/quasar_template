@@ -58,8 +58,10 @@
     "preview": "vite preview",
     "script": "node ./src/scripts/hello.js",
     "test": "cross-env VITE_NODE_ENV=test vitest",
-    "test:push": "cross-env VITE_NODE_ENV=test vitest --run",
+    "test:coverage": "cross-env VITE_NODE_ENV=test vitest --coverage",
     "test:integrations": "cross-env VITE_NODE_ENV=test vitest ./src/testing/integration",
+    "test:push": "cross-env VITE_NODE_ENV=test vitest --run",
+    "test:ui": "cross-env VITE_NODE_ENV=test vitest --ui --coverage.enabled=true",
     "test:unit": "cross-env VITE_NODE_ENV=test vitest ./src/testing/unit"
   },
   "dependencies": {
@@ -77,6 +79,8 @@
     "@eslint/js": "^9.2.0",
     "@quasar/vite-plugin": "^1.7.0",
     "@vitejs/plugin-vue": "^5.0.4",
+    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/ui": "^1.6.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-standard": "^17.1.0",

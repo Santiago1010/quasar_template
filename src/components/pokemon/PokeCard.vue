@@ -1,5 +1,16 @@
 <script setup>
+  import { useRouter, useRoute } from 'vue-router';
+  import { usePokemonStore } from '../../stores/pokemon/pokemon.store';
+  import { onMounted } from 'vue';
+
   const props = defineProps(['id', 'image', 'name', 'pokedex', 'types']);
+  const $router = useRouter();
+  const pokemonStore = usePokemonStore();
+
+  const filterByType = (type) => {
+    $router.push({ path: '/', query: { type } });
+    pokemonStore.readTypeDetails(type);
+  };
 </script>
 
 <template>
@@ -16,7 +27,9 @@
       <q-chip
         v-for="pokeType in props.types"
         :key="pokeType.slot"
+        @click="filterByType(pokeType.type.name)"
         :class="'cursor-pointer text-capitalize text-bold ' + pokeType.type.name"
+        clickable
       >
         <q-avatar><q-img :src="'/images/types/' + pokeType.type.name + '.svg'" /></q-avatar>
         {{ $t('types.' + pokeType.type.name) }}

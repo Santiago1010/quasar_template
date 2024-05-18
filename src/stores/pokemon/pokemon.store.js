@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia';
 import { readAllPokemonApi, readPokemonsDetailsApi } from '../../api/pokemon/pokemon.api';
+import { readTypeDetailsApi } from '../../api/pokemon/type.api';
 
 export const usePokemonStore = defineStore('pokemon', {
   state: () => ({
     pokemons: [],
+    type: null,
   }),
   actions: {
     readAllPokemon() {
@@ -21,8 +23,15 @@ export const usePokemonStore = defineStore('pokemon', {
                 console.error(error);
               });
           }
-
-          console.log(this.pokemons);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    readTypeDetails(type) {
+      readTypeDetailsApi(type)
+        .then((response) => {
+          this.type = response.data;
         })
         .catch((error) => {
           console.error(error);
