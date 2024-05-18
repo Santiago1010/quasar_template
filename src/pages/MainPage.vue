@@ -1,20 +1,20 @@
 <script setup>
-  import { onMounted } from 'vue';
-  import { useRoute } from 'vue-router';
-  import { usePokemonStore } from '../stores/pokemon/pokemon.store';
-  import PokeCard from '../components/pokemon/PokeCard.vue';
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import PokeCard from '../components/pokemon/PokeCard.vue';
+import { usePokemonStore } from '../stores/pokemon/pokemon.store';
 
-  const $route = useRoute();
+const $route = useRoute();
 
-  const pokemonStore = usePokemonStore();
+const pokemonStore = usePokemonStore();
 
-  onMounted(async () => {
-    pokemonStore.readAllPokemon();
+onMounted(async () => {
+	pokemonStore.readAllPokemon();
 
-    if ($route.query.type !== undefined) {
-      pokemonStore.readTypeDetails($route.query.type);
-    }
-  });
+	if ($route.query.type !== undefined) {
+		pokemonStore.readTypeDetails($route.query.type);
+	}
+});
 </script>
 
 <template>

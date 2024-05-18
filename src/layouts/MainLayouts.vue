@@ -1,5 +1,5 @@
 <script setup>
-  import ChangeLanguage from '../components/configuration/ChangeLanguage.vue';
+import ChangeLanguage from '../components/configuration/ChangeLanguage.vue';
 </script>
 
 <template>

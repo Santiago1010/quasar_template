@@ -1,7 +1,7 @@
-import { createApp } from 'vue';
-import { Quasar, Notify } from 'quasar';
-import quasarLang from 'quasar/lang/en-US';
 import { createPinia } from 'pinia';
+import { Notify, Quasar } from 'quasar';
+import quasarLang from 'quasar/lang/en-US';
+import { createApp } from 'vue';
 
 import i18n from './configurations/i18n';
 import router from './configurations/router';
@@ -19,11 +19,11 @@ import App from './App.vue';
 const pinia = createPinia();
 
 createApp(App)
-  .use(i18n)
-  .use(router)
-  .use(pinia)
-  .use(Quasar, {
-    plugins: { Notify }, // import Quasar plugins and add here
-    lang: quasarLang,
-  })
-  .mount('#app');
+	.use(i18n)
+	.use(router)
+	.use(pinia)
+	.use(Quasar, {
+		plugins: { Notify }, // import Quasar plugins and add here
+		lang: quasarLang,
+	})
+	.mount('#app');

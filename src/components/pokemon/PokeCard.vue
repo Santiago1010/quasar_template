@@ -1,16 +1,15 @@
 <script setup>
-  import { useRouter, useRoute } from 'vue-router';
-  import { usePokemonStore } from '../../stores/pokemon/pokemon.store';
-  import { onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { usePokemonStore } from '../../stores/pokemon/pokemon.store';
 
-  const props = defineProps(['id', 'image', 'name', 'pokedex', 'types']);
-  const $router = useRouter();
-  const pokemonStore = usePokemonStore();
+const props = defineProps(['id', 'image', 'name', 'pokedex', 'types']);
+const $router = useRouter();
+const pokemonStore = usePokemonStore();
 
-  const filterByType = (type) => {
-    $router.push({ path: '/', query: { type } });
-    pokemonStore.readTypeDetails(type);
-  };
+const filterByType = (type) => {
+	$router.push({ path: '/', query: { type } });
+	pokemonStore.readTypeDetails(type);
+};
 </script>
 
 <template>

@@ -5,11 +5,11 @@
  * @return {string} the formatted string with each word capitalized
  */
 const formatCapitalize = (str) => {
-  const string = str.trim();
-  return string
-    .split(' ')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ');
+	const string = str.trim();
+	return string
+		.split(' ')
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+		.join(' ');
 };
 
 /**
@@ -20,19 +20,19 @@ const formatCapitalize = (str) => {
  * @return {Array} An array of substrings.
  */
 const stringToArray = (str, separator, numberElements = false) => {
-  const array = str.split(separator);
+	const array = str.split(separator);
 
-  if (numberElements) {
-    let numbers = [];
+	if (numberElements) {
+		const numbers = [];
 
-    for (let element of array) {
-      numbers.push(parseInt(element));
-    }
+		for (const element of array) {
+			numbers.push(Number.parseInt(element));
+		}
 
-    return numbers;
-  }
+		return numbers;
+	}
 
-  return array;
+	return array;
 };
 
 /**
@@ -43,7 +43,7 @@ const stringToArray = (str, separator, numberElements = false) => {
  * @return {number} The number of occurrences of the substring in the string
  */
 const countOccurrences = (str, subStr) => {
-  return str.split(subStr).length - 1;
+	return str.split(subStr).length - 1;
 };
 
 /**
@@ -53,18 +53,23 @@ const countOccurrences = (str, subStr) => {
  * @return {string} The converted string in camel case.
  */
 const toCamelCase = (string) => {
-  string = string.replace(/[^\w\sáéíóúüñÁÉÍÓÚÜÑ_-]/g, '');
-  string = string.replace(/[-_]/g, ' ');
-  string = string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+	let str = string.replace(/[^\w\sáéíóúüñÁÉÍÓÚÜÑ_-]/g, '');
 
-  let formattedString = '';
-  const stringsArray = string.split(' ');
+	str = str.replace(/[^\w\sáéíóúüñÁÉÍÓÚÜÑ_-]/g, '');
+	str = str.replace(/[-_]/g, ' ');
+	str = str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-  for (var i = 0; i < stringsArray.length; i++) {
-    formattedString += i === 0 ? stringsArray[0].toLowerCase() : formatCapitalize(stringsArray[i]);
-  }
+	let formattedString = '';
+	const stringsArray = string.split(' ');
 
-  return formattedString;
+	for (let i = 0; i < stringsArray.length; i++) {
+		formattedString +=
+			i === 0
+				? stringsArray[0].toLowerCase()
+				: formatCapitalize(stringsArray[i]);
+	}
+
+	return formattedString;
 };
 
 /**
@@ -74,9 +79,9 @@ const toCamelCase = (string) => {
  * @return {string} The converted string in PascalCase.
  */
 const toPascalCase = (string) => {
-  string = toCamelCase(string);
+	str = toCamelCase(string);
 
-  return string.charAt(0).toUpperCase() + string.slice(1);
+	return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
 /**
@@ -86,12 +91,13 @@ const toPascalCase = (string) => {
  * @return {string} The converted string in snake case.
  */
 const toSnakeCase = (string) => {
-  string = string.replace(/[^\w\sáéíóúüñÁÉÍÓÚÜÑ_-]/g, '');
-  string = string.replace(/[-_]/g, '_');
-  string = string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  string = string.replace(/\s/g, '_');
+	let str = string.replace(/[^\w\sáéíóúüñÁÉÍÓÚÜÑ_-]/g, '');
 
-  return string.toLowerCase();
+	str = str.replace(/[-_]/g, '_');
+	str = str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+	str = str.replace(/\s/g, '_');
+
+	return str.toLowerCase();
 };
 
 /**
@@ -101,7 +107,7 @@ const toSnakeCase = (string) => {
  * @return {string} The converted string in SCREAMING_SNAKE_CASE.
  */
 const toScreamingSnakeCase = (string) => {
-  return toSnakeCase(string).toUpperCase();
+	return toSnakeCase(string).toUpperCase();
 };
 
 /**
@@ -111,18 +117,18 @@ const toScreamingSnakeCase = (string) => {
  * @return {string} The converted string in kebab case.
  */
 const toKebabCase = (string) => {
-  string = toSnakeCase(string);
+	const str = toSnakeCase(string);
 
-  return string.replace(/_/g, '-');
+	return str.replace(/_/g, '-');
 };
 
 export {
-  formatCapitalize,
-  stringToArray,
-  countOccurrences,
-  toCamelCase,
-  toPascalCase,
-  toSnakeCase,
-  toScreamingSnakeCase,
-  toKebabCase,
+	formatCapitalize,
+	stringToArray,
+	countOccurrences,
+	toCamelCase,
+	toPascalCase,
+	toSnakeCase,
+	toScreamingSnakeCase,
+	toKebabCase,
 };

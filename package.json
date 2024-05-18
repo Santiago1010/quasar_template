@@ -1,97 +1,92 @@
 {
-  "name": "quasar_template",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "main": "index.html",
-  "description": "This is a template for quickly working with Quasar and Vite - Vue 3. It includes features that assist in both individual and group workflows, such as Husky for Git hooks, Prettier for code formatting, and ESLint for code quality checks. Additionally, it provides testing capabilities with Vitest, along with Axios for HTTP requests, Crypto-js for cryptography functionalities, and Jwt-decode for JWT decoding. It also integrates Pinia for state management and Vue-router for routing. The template utilizes Sass for styling and supports TypeScript. Furthermore, it implements lint-staged for staged linting, and vue-eslint-parser for parsing Vue files within ESLint. Notably, it supports internationalization throughout the app, facilitating efficient adaptation of content and user interface to different languages via tools like vue-i18n, thus extending the application's reach to a broader audience.",
-  "keywords": [
-    "Quasar",
-    "Vite",
-    "Vue 3",
-    "Husky",
-    "Prettier",
-    "ESLint",
-    "Vitest",
-    "Axios",
-    "Crypto-js",
-    "Jwt-decode",
-    "Pinia",
-    "Vue-router",
-    "Babel",
-    "Testing-library",
-    "Sass",
-    "TypeScript",
-    "lint-staged",
-    "vue-eslint-parser",
-    "faker-js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Santiago1010/quasar-template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Santiago1010/quasar-template/issues"
-  },
-  "author": {
-    "name": "Santiago Correa Aguirre",
-    "email": "santiago.c.a_10@hotmail.es"
-  },
-  "license": "MIT",
-  "lint-staged": {
-    "**/*.{js,ts,vue}": [
-      "prettier --write --ignore-unknown",
-      "eslint --fix",
-      "git add ."
-    ]
-  },
-  "scripts": {
-    "build": "vite build",
-    "dev": "vite",
-    "format": "prettier --write .",
-    "format:check": "prettier --check \"{public,src}/**/*.{js,ts,vue,json,css}\"",
-    "format:write": "prettier --write \"{public,src}/**/*.{js,ts,vue,json,css}\"",
-    "lint": "eslint .",
-    "lint:check": "eslint \"{public,src}/**/*.{js,ts,vue,json}\"",
-    "lint:fix": "eslint \"{public,src}/**/*.{js,ts,vue,json}\" --fix",
-    "prepare": "husky",
-    "preview": "vite preview",
-    "script": "node ./src/scripts/hello.js",
-    "test": "cross-env VITE_NODE_ENV=test vitest",
-    "test:coverage": "cross-env VITE_NODE_ENV=test vitest --coverage",
-    "test:integrations": "cross-env VITE_NODE_ENV=test vitest ./src/testing/integration",
-    "test:push": "cross-env VITE_NODE_ENV=test vitest --run",
-    "test:ui": "cross-env VITE_NODE_ENV=test vitest --ui --coverage.enabled=true",
-    "test:unit": "cross-env VITE_NODE_ENV=test vitest ./src/testing/unit"
-  },
-  "dependencies": {
-    "@quasar/extras": "^1.16.11",
-    "axios": "^1.6.8",
-    "crypto-js": "^4.2.0",
-    "jsonwebtoken": "^9.0.2",
-    "pinia": "^2.1.7",
-    "quasar": "^2.16.4",
-    "vue": "^3.4.21",
-    "vue-i18n": "^9.13.1",
-    "vue-router": "^4.3.2"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.2.0",
-    "@quasar/vite-plugin": "^1.7.0",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "@vitest/coverage-v8": "^1.6.0",
-    "@vitest/ui": "^1.6.0",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.57.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-vue": "^9.26.0",
-    "husky": "^9.0.11",
-    "prettier": "3.2.5",
-    "sass": "^1.33.0",
-    "vite": "^5.2.0",
-    "vitest": "^1.6.0"
-  }
+	"name": "quasar_template",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"main": "index.html",
+	"description": "This is a template for quickly working with Quasar and Vite - Vue 3. It includes features that assist in both individual and group workflows, such as Husky for Git hooks, Prettier for code formatting, and ESLint for code quality checks. Additionally, it provides testing capabilities with Vitest, along with Axios for HTTP requests, Crypto-js for cryptography functionalities, and Jwt-decode for JWT decoding. It also integrates Pinia for state management and Vue-router for routing. The template utilizes Sass for styling and supports TypeScript. Furthermore, it implements lint-staged for staged linting, and vue-eslint-parser for parsing Vue files within ESLint. Notably, it supports internationalization throughout the app, facilitating efficient adaptation of content and user interface to different languages via tools like vue-i18n, thus extending the application's reach to a broader audience.",
+	"keywords": [
+		"Quasar",
+		"Vite",
+		"Vue 3",
+		"Husky",
+		"Prettier",
+		"ESLint",
+		"Vitest",
+		"Axios",
+		"Crypto-js",
+		"Jwt-decode",
+		"Pinia",
+		"Vue-router",
+		"Babel",
+		"Testing-library",
+		"Sass",
+		"TypeScript",
+		"lint-staged",
+		"vue-eslint-parser",
+		"faker-js"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Santiago1010/quasar-template.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Santiago1010/quasar-template/issues"
+	},
+	"author": {
+		"name": "Santiago Correa Aguirre",
+		"email": "santiago.c.a_10@hotmail.es"
+	},
+	"license": "MIT",
+	"lint-staged": {
+		"**/*.{js,ts,vue}": [
+			"prettier --write --ignore-unknown",
+			"npx @biomejs/biome check --apply .",
+			"git add ."
+		]
+	},
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite",
+		"format": "prettier --write .",
+		"format:check": "prettier --check \"{public,src}/**/*.{js,ts,vue,json,css}\"",
+		"format:write": "prettier --write \"{public,src}/**/*.{js,ts,vue,json,css}\"",
+		"lint": "npx @biomejs/biome check --apply .",
+		"lint:check": "npx @biomejs/biome lint --write \"{public,src}/**/*.{js,ts,vue,json}\"",
+		"lint:fix": "npx @biomejs/biome lint --apply \"{public,src}/**/*.{js,ts,vue,json}\"",
+		"prepare": "husky",
+		"preview": "vite preview",
+		"script": "node ./src/scripts/hello.js",
+		"test": "cross-env VITE_NODE_ENV=test vitest",
+		"test:coverage": "cross-env VITE_NODE_ENV=test vitest --coverage",
+		"test:integrations": "cross-env VITE_NODE_ENV=test vitest ./src/testing/integration",
+		"test:push": "cross-env VITE_NODE_ENV=test vitest --run",
+		"test:ui": "cross-env VITE_NODE_ENV=test vitest --ui --coverage.enabled=true",
+		"test:unit": "cross-env VITE_NODE_ENV=test vitest ./src/testing/unit"
+	},
+	"dependencies": {
+		"@quasar/extras": "^1.16.11",
+		"axios": "^1.6.8",
+		"crypto-js": "^4.2.0",
+		"jsonwebtoken": "^9.0.2",
+		"pinia": "^2.1.7",
+		"quasar": "^2.16.4",
+		"vue": "^3.4.21",
+		"vue-i18n": "^9.13.1",
+		"vue-router": "^4.3.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.7.3",
+		"@quasar/vite-plugin": "^1.7.0",
+		"@vitejs/plugin-vue": "^5.0.4",
+		"@vitest/coverage-v8": "^1.6.0",
+		"@vitest/ui": "^1.6.0",
+		"cross-env": "^7.0.3",
+		"globals": "^15.2.0",
+		"husky": "^9.0.11",
+		"prettier": "3.2.5",
+		"sass": "^1.33.0",
+		"vite": "^5.2.0",
+		"vitest": "^1.6.0"
+	}
 }

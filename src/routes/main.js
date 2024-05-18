@@ -5,17 +5,17 @@ import MainLayout from '../layouts/MainLayouts.vue';
 import MainPage from '../pages/MainPage.vue';
 
 const routes = [
-  {
-    path: '/',
-    component: MainLayout,
-    children: [
-      {
-        path: '/',
-        name: 'main',
-        component: MainPage,
-      },
-    ],
-  },
+	{
+		path: '/',
+		component: MainLayout,
+		children: [
+			{
+				path: '/',
+				name: 'main',
+				component: MainPage,
+			},
+		],
+	},
 ];
 
 export default routes;

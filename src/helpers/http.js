@@ -5,17 +5,17 @@
  * @return {string} The generated query string.
  */
 const setQueryStrings = (object) => {
-  const queryString = new Set();
+	const queryString = new Set();
 
-  for (const [key, value] of Object.entries(object)) {
-    queryString.add(encodeURIComponent(key) + '=' + encodeURIComponent(value));
-  }
+	for (const [key, value] of Object.entries(object)) {
+		queryString.add(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+	}
 
-  const arrayQueryString = Array.from(queryString);
+	const arrayQueryString = Array.from(queryString);
 
-  if (arrayQueryString.length > 0) return '?' + arrayQueryString.join('&');
+	if (arrayQueryString.length > 0) return '?' + arrayQueryString.join('&');
 
-  return '';
+	return '';
 };
 
 /**
@@ -25,13 +25,13 @@ const setQueryStrings = (object) => {
  * @return {FormData} The FormData object created from the object.
  */
 const setFormData = (object) => {
-  const formData = new FormData();
+	const formData = new FormData();
 
-  for (const [key, value] of Object.entries(object)) {
-    formData.append(key, value);
-  }
+	for (const [key, value] of Object.entries(object)) {
+		formData.append(key, value);
+	}
 
-  return formData;
+	return formData;
 };
 
 export { setQueryStrings, setFormData };
