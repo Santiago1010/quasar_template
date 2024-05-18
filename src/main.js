@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
-import { Quasar } from 'quasar';
-import quasarLang from 'quasar/lang/es';
+import { Quasar, Notify } from 'quasar';
+import quasarLang from 'quasar/lang/en-US';
 import { createPinia } from 'pinia';
 
 import i18n from './configurations/i18n';
@@ -23,7 +23,7 @@ createApp(App)
   .use(router)
   .use(pinia)
   .use(Quasar, {
-    plugins: {}, // import Quasar plugins and add here
+    plugins: { Notify }, // import Quasar plugins and add here
     lang: quasarLang,
   })
   .mount('#app');

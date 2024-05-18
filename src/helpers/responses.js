@@ -1,9 +1,8 @@
-import config from './../config/config';
 import { Notify } from 'quasar';
 
 const defaultValues = {
   progress: true,
-  timeout: config.parameters.timeoutNotify,
+  timeout: import.meta.env.VITE_RESP_TIMEOUT,
 };
 
 /**
